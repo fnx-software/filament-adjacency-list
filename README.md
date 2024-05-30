@@ -85,13 +85,6 @@ AdjacencyList::make('subjects')
     ->reorderAction(fn (Action $action): Action => $action->icon('heroicon-o-arrow-path-rounded-square'))
 ```
 
-> [!IMPORTANT]
-> **Reorder Action**
-> 
-> If you want to add `->extraAttributes()` to the action, you need to add the `'data-sortable-handle' => 'true'` to the array, as the action serves as a handle for SortableJS.
-> 
-> By default, clicking on the action will do anything. If you want to trigger some action on click, you need to chain `->livewireClickHandlerEnabled()` on the action.
-
 ## Relationships
 In this example, we'll be creating a Ticketing system, where tickets can be assigned to a department, and departments have subjects.
 
