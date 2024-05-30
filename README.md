@@ -49,6 +49,12 @@ AdjacencyList::make('subjects')
     ->maxDepth(2)               // defaults to -1 (unlimited depth)
 ```
 
+### Customizing the `MaxDepth` of the tree.
+```php
+AdjacencyList::make('subjects')
+    ->maxDepth(2)               // defaults to -1 (unlimited depth)
+```
+
 ### Creating items without a modal.
 ```php
 AdjacencyList::make('subjects')
@@ -67,6 +73,7 @@ AdjacencyList::make('subjects')
 ```
 
 ### Customizing actions
+
 ```php
 use Filament\Forms\Actions\Action;
 
