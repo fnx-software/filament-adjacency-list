@@ -55,13 +55,15 @@ AdjacencyList::make('subjects')
     ->modal(false)      // defaults to true
 ```
 
-### Disabling creation, edition, deletion, and reordering.
+### Disabling creation, edition, deletion, reordering, moving, and indenting.
 ```php
 AdjacencyList::make('subjects')
     ->addable(false)
     ->editable(false)
     ->deletable(false)
     ->reorderable(false)
+    ->moveable(false)
+    ->indentable(false)
 ```
 
 ### Customizing actions
