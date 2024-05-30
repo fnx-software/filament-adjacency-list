@@ -73,7 +73,6 @@ AdjacencyList::make('subjects')
 ```
 
 ### Customizing actions
-
 ```php
 use Filament\Forms\Actions\Action;
 
