@@ -41,6 +41,9 @@
             })"
         >
             @forelse($getState() as $uuid => $item)
+                @php
+                    $itemLabel = $getItemLabel($uuid);
+                @endphp
                 <x-filament-adjacency-list::item
                     :actions="$itemActions"
                     :addable="$isAddable"
@@ -49,6 +52,7 @@
                     :disabled="$isDisabled"
                     :editable="$isEditable"
                     :item="$item"
+                    :item-label="$itemLabel"
                     :item-state-path="$getStatePath() . '.' . $uuid"
                     :label-key="$getLabelKey()"
                     :reorderable="$isReorderable"
