@@ -1,4 +1,4 @@
-@props(['actions', 'addable', 'childrenKey', 'deletable', 'disabled', 'editable', 'item', 'itemStatePath', 'labelKey', 'reorderable', 'statePath'])
+@props(['actions', 'addable', 'childrenKey','itemLabel', 'deletable', 'disabled', 'editable', 'item', 'itemStatePath', 'labelKey', 'reorderable', 'statePath'])
 
 <div
     class="space-y-2"
@@ -48,7 +48,11 @@
                     type="button"
                     @if($editable) wire:click="mountFormComponentAction(@js($statePath), 'edit', @js(['statePath' => $itemStatePath]))" @endif
                 >
-                    <span>{{ $item[$labelKey] }}</span>
+                     @if(filled($itemLabel))
+                        <span>{{$itemLabel}}</span>
+                     @else
+                        <span>{{$item[$labelKey] }}</span>
+                     @endif
                 </button>
             </div>
 
