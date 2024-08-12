@@ -15,6 +15,8 @@ class AdjacencyList extends Forms\Components\Field
     protected string $view = 'filament-adjacency-list::builder';
 
     protected string | Closure $labelKey = 'label';
+    
+    protected string | Closure | null $itemLabel = null;
 
     protected string | Closure $childrenKey = 'children';
 
@@ -74,7 +76,21 @@ class AdjacencyList extends Forms\Components\Field
 
         return $this;
     }
+    public function itemLabel(string | Closure | null $label): static
+    {
+        $this->itemLabel = $label;
 
+        return $this;
+    }
+    public function getItemLabel(string $uuid): string | Htmlable | null
+    {
+        $container = $this->getChildComponentContainer($uuid);
+        return $this->evaluate($this->itemLabel, [
+            'container' => $container,
+            'state' => $container->getRawState(),
+            'uuid' => $uuid,
+        ]);
+    }
     public function getLabelKey(): string
     {
         return $this->evaluate($this->labelKey);
